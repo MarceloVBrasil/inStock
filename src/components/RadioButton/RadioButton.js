@@ -1,7 +1,7 @@
 import React from 'react'
 import './RadioButton.scss'
 
-export default function RadioButton({ text, name, value, setQuantityShowsUp, checked, setStatusChecked }) {
+export default function RadioButton({ text, name, value, setQuantityShowsUp, checked }) {
   return (
     <div className='radio-button'>
       <input type="radio" name={name} value={value} className="radio-button__input" onChange={handleChange} checked={checked} />
@@ -12,11 +12,9 @@ export default function RadioButton({ text, name, value, setQuantityShowsUp, che
   function handleChange() {
     if (value === 'In Stock') {
       setQuantityShowsUp(true)
-      //setStatusChecked("In Stock")
     }
     if (value === 'Out Of Stock') {
       setQuantityShowsUp(false)
-      //setStatusChecked("Out Of Stock")
     }
   }
 }
