@@ -2,15 +2,15 @@ import "./WarehouseInventoryListItem.scss";
 import arrowIcon from "../../assets/icons/chevron_right-24px.svg";
 import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
+import { Link } from "react-router-dom";
 
 function WarehouseInventoryListItem ({name , quantity , category , status, id , handleClick }) {
-
     return (
         <div className="inv-row">
             <div className="inv-row__inv">
                 <p className="inv-row__inv-heading--mobile">INVENTORY ITEM</p>
                 <div className="inv-row__inv-item-con">
-                    <p className="inv-row__inv-item">{name}</p>
+                    <Link to={`/inventories/${id}`}><p className="inv-row__inv-item">{name}</p></Link>
                     <img className="inv-row__inv-icon" src={arrowIcon} alt="chevron right" /> 
                 </div>
             </div>
@@ -28,7 +28,7 @@ function WarehouseInventoryListItem ({name , quantity , category , status, id , 
             </div>
             <div className="inv-row__actions">
                 <img className="inv-row__actions-delete" src={deleteIcon} onClick={() => handleClick(true, id, name)} alt="red garbage can delete" />
-                <img className="inv-row__actions-edit" src={editIcon} alt="blue pen representing edit" />
+                <Link to={`/inventories/${id}/edit`}><img className="inv-row__actions-edit" src={editIcon} alt="blue pen representing edit"/></Link>
             </div>
         </div>
     )
