@@ -2,7 +2,7 @@ import axios from "axios"
 
 const {
 REACT_APP_PORT: PORT = "8080", // change the default port accordingly
-REACT_APP_BACKEND_URL: URL = "http://localhost"
+REACT_APP_BACKEND_URL: URL = "https://enigmatic-citadel-26703.herokuapp.com"
 } = process.env; 
 /**
  * note: with axiosInstance you do not need to type the baseURL every time.
