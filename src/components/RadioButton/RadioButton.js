@@ -1,10 +1,10 @@
 import React from 'react'
 import './RadioButton.scss'
 
-export default function RadioButton({ text, name, value, setQuantityShowsUp, checked }) {
+export default function RadioButton({ text, name, value, setQuantityShowsUp }) {
   return (
     <div className='radio-button'>
-      <input type="radio" name={name} value={value} className="radio-button__input" onChange={handleChange} checked={checked} />
+      <input type="radio" name={name} value={value} className="radio-button__input" onChange={handleChange} />
       <p className='radio-button__text'>{text}</p>
     </div>
   )
