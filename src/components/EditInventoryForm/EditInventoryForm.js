@@ -8,6 +8,7 @@ import RadioButton from '../RadioButton/RadioButton'
 import TextInput from '../TextInput/TextInput'
 import './EditInventoryForm.scss'
 import { useParams } from 'react-router-dom'
+import errorIcon from '../../assets/icons/error-24px.svg'
 
 export default function EditInventoryForm() {
   const [categories, setCategories] = useState([])
@@ -45,13 +46,15 @@ export default function EditInventoryForm() {
             //set error for invalid quantity
             if (isNaN(newItem.quantity) || parseInt(newItem.quantity) < 0) 
                 err['quantity'] = "Quantity must be a non-negative number"
+            if (!newItem.status)
+                err['status'] = "Status must be set"
             if (parseInt(newItem.quantity) > 0 && newItem.status === "Out Of Stock")
                 err['quantity'] = "Status does not match quantity in stock"
             if (parseInt(newItem.quantity) === 0 && newItem.status === "In Stock")
                 err['quantity'] = "Status does not match quantity in stock"
                 //set error for keys with missing values
                 validate.values(newItem)
-                    .forEach(key => err[key] = 'this field is required')
+                    .forEach(key => err[key] = 'This Field is Required')
                 setError(err)
                 if( validate.values(newItem).length !== 0 ||  err['quantity']) return
             setError({})
@@ -94,6 +97,11 @@ export default function EditInventoryForm() {
                                 <RadioButton text='In stock' name='status' value='In Stock' setQuantityShowsUp={setQuantityShowsUp} />
                                 <RadioButton text="Out of stock" name='status' value='Out Of Stock' setQuantityShowsUp={setQuantityShowsUp} />
                             </div>
+                            {error.status &&
+                            <div className='text-input__error'>
+                            <img src={errorIcon} alt="error" className='text-input__error-icon' />
+                            <p className='text-input__error-text'>{error.status}</p>
+                            </div>}
                         </div>
                         { quantityShowsUp && <TextInput type="small" label="Quantity" placeholder="0" name='quantity' error={error.quantity} value={details.quantity} />}
                         <div className='new-inventory-form-group'>

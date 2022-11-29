@@ -12,11 +12,11 @@ export default function RadioButton({ text, name, value, setQuantityShowsUp, che
   function handleChange() {
     if (value === 'In Stock') {
       setQuantityShowsUp(true)
-      setStatusChecked("In Stock")
+      //setStatusChecked("In Stock")
     }
     if (value === 'Out Of Stock') {
       setQuantityShowsUp(false)
-      setStatusChecked("Out Of Stock")
+      //setStatusChecked("Out Of Stock")
     }
   }
 }
