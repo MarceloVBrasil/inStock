@@ -103,7 +103,7 @@ export default function EditInventoryForm() {
                     </section>
                 </div>
                 <div className='new-inventory-form-buttons'>
-                    <Button type='cancel' text={'cancel'} />
+                    <Button type='cancel' text={'cancel'} onClick={() => navigate(-1)} />
                     <Button text={'save'} type='submit' />
                 </div>
             </form>
