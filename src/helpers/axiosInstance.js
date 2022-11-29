@@ -10,6 +10,6 @@ REACT_APP_BACKEND_URL: URL = "https://enigmatic-citadel-26703.herokuapp.com"
  * Then, call the api as follows: axiosInstance.get('/warehouses')
  */
 export const axiosInstance = axios.create({
-    baseURL: `${URL}:${PORT}`,
+    baseURL: `${URL}`,
     'Content-Type': 'application/json'
 })
