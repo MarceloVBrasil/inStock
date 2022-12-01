@@ -14,8 +14,12 @@
     }
 
     &__cat {
-        margin-left: 0.6rem;
+        margin-left: 0.0rem;
         font-size: .815rem;
+
+        @include responsive.tablet {
+            margin-left: 0.6rem;
+        }
     }
 
     &__in-stock {
@@ -29,6 +33,10 @@
         font-size: 0.815rem;
         text-align: center;
         max-width: min-content;
+
+        @include responsive.tablet {
+            margin-left: 0.8rem;
+        }
     }
 
     &__out-stock {
@@ -73,10 +81,10 @@
 
 .inv-row__inv {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     order: 1;
-    width: 50%;
+    width: auto;
 
     @include responsive.tablet {
         display: flex;
@@ -102,6 +110,10 @@
         color: $primary-instock-indigo;
         font-size: .815rem;
         cursor: pointer;
+
+        @include responsive.tablet {
+            margin-left: 0;
+        }
     }
 
     &-item-con {
@@ -114,6 +126,7 @@
 
 .inv-row__inv-heading--mobile {
     font-size: .7rem;
+    width: 100%;
 
 
     @include responsive.tablet {
